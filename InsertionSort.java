@@ -4,13 +4,17 @@ public class InsertionSort {
 
         showArray(nums);
 
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 1; i < nums.length; i++) {
+            int newValue = nums[i];
+
             int j = i;
 
-            while (j > 0 && (nums[j - 1] > nums[j])) {
-                swap(nums, j, (j -1));
+            while (j > 0 && (nums[j - 1] > newValue)) {
+                nums[j] = nums[j - 1];
                 j--;
             }
+
+            nums[j] = newValue;
         }
 
         showArray(nums);
@@ -22,11 +26,5 @@ public class InsertionSort {
         }
 
         System.out.println();
-    }
-
-    private static void swap(int[] nums, int i, int j) {
-        int tmp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = tmp;
     }
 }
